@@ -1,0 +1,24 @@
+//reference//
+https://learn.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-7.0&tabs=visual-studio
+
+Install Swashbuckle to the existing app API to convert it into Open API source.
+
+NuGet\Install-Package Swashbuckle.AspNetCore -Version 6.4.0
+
+If still its not working check for version compatability.
+
+within program.cs add
+
+builder.Services.AddControllers();
+
+builder.Services.AddEndpointsApiExplorer();
+***builder.Services.AddSwaggerGen();***//add the swagger generator to the service collection
+
+within program.cs
+***if (app.Environment.IsDevelopment())//enable the middleware for serving the generated JSON Document
+
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}***
+
